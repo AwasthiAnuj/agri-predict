@@ -1,0 +1,4 @@
+rainfall (mm),temperature (°C),soil_quality (1-10),irrigation (1-5),fertilizer (kg),past_yield (tons)
+120,28,8,4,50,2.5
+95,32,6,3,40,2.1
+140,26,9,5,55,3.2
