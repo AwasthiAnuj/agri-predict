@@ -1,0 +1,18 @@
+from flask import Flask, request, jsonify
+
+app = Flask(__name__)
+
+@app.route('/predict', methods=['POST'])
+def predict_yield():
+    # Get input data from user (via API request)
+    input_data = request.json
+    X_new = np.array([[input_data['rainfall'], input_data['temperature'], 
+                       input_data['soil_quality'], input_data['irrigation'], 
+                       input_data['fertilizer']]])
+
+    # Predict crop yield
+    predicted_yield = model.predict(X_new)[0]
+    return jsonify({"Predicted Yield (tons/ha)": round(predicted_yield, 2)})
+
+if __name__ == '__main__':
+    app.run(debug=True)
