@@ -1,0 +1,6 @@
+# Create virtual environment
+python -m venv farm_env
+source farm_env/bin/activate  # Windows: farm_env\Scripts\activate
+
+# Install dependencies
+pip install pandas numpy scikit-learn flask requests
