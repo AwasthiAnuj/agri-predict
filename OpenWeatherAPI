@@ -1,0 +1,15 @@
+import requests
+
+def get_weather_data(city="Delhi"):
+    API_KEY = "your_api_key_here"
+    URL = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}&units=metric"
+    response = requests.get(URL).json()
+
+    # Extract required data
+    temp = response['main']['temp']
+    rainfall = response.get('rain', {}).get('1h', 0)  # Rainfall in last 1 hour
+    return temp, rainfall
+
+# Example: Get live weather for Delhi
+temperature, rainfall = get_weather_data("Delhi")
+print(f"Live Weather - Temperature: {temperature}°C, Rainfall: {rainfall}mm")
